@@ -1,9 +1,25 @@
 package com.greeting.greetingapp.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class User {
+    @Id
+    @GeneratedValue
     public int id;
     private String firstName;
     private String lastName;
+
+    public User(User user) {
+        this.firstName = user.firstName;
+        this.lastName = user.lastName;
+    }
+
+    public User() {
+
+    }
 
     public int getId() {
         return id;
