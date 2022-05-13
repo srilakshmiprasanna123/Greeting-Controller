@@ -1,15 +1,19 @@
 package com.greeting.greetingapp.controller;
 
 import com.greeting.greetingapp.entity.User;
+import com.greeting.greetingapp.service.ServiceLayer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class Controller {
 
-    @GetMapping("/")
+    @Autowired
+    ServiceLayer serviceLayer;
+
+    @GetMapping("/happy")
     public String sayHello(){
-        return "Hello Lucky";
+      return serviceLayer.sayHello();
     }
 
     @RequestMapping(value = {"/hi"}, method = RequestMethod.GET)
